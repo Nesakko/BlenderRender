@@ -9,10 +9,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QDir dir("/home");
-//    foreach (QFileInfo var, dir.entryList()) {
-//        ui->BlendFile->add(var.absoluteFilePath());
-//    }
 }
 
 MainWindow::~MainWindow()
