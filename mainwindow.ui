@@ -306,14 +306,22 @@
          <number>6</number>
         </property>
         <item row="1" column="0">
+<<<<<<< ours
          <widget class="QLineEdit" name="SaveRender">
+=======
+         <widget class="QLineEdit" name="BlendFile_2">
+>>>>>>> theirs
           <property name="placeholderText">
            <string>Images/myRenders/myProject/myScene001</string>
           </property>
          </widget>
         </item>
         <item row="1" column="1">
+<<<<<<< ours
          <widget class="QToolButton" name="SaveRenderSelect">
+=======
+         <widget class="QToolButton" name="BlendSelect_2">
+>>>>>>> theirs
           <property name="cursor">
            <cursorShape>PointingHandCursor</cursorShape>
           </property>
