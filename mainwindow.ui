@@ -66,11 +66,8 @@
         </property>
         <item row="1" column="1">
          <widget class="QToolButton" name="BlenderPathSelect">
-          <property name="maximumSize">
-           <size>
-            <width>32</width>
-            <height>32</height>
-           </size>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="text">
            <string>...</string>
@@ -79,8 +76,11 @@
         </item>
         <item row="1" column="0">
          <widget class="QLineEdit" name="BlenderPath">
-          <property name="text">
-           <string/>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="placeholderText">
+           <string>home/user/Blender2.8</string>
           </property>
          </widget>
         </item>
@@ -115,15 +115,16 @@
          </widget>
         </item>
         <item row="1" column="0">
-         <widget class="QLineEdit" name="BlendFile"/>
+         <widget class="QLineEdit" name="BlendFile">
+          <property name="placeholderText">
+           <string>Documents/myProject/myScene.blend</string>
+          </property>
+         </widget>
         </item>
         <item row="1" column="1">
          <widget class="QToolButton" name="BlendSelect">
-          <property name="maximumSize">
-           <size>
-            <width>32</width>
-            <height>32</height>
-           </size>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="text">
            <string>...</string>
@@ -305,15 +306,16 @@
          <number>6</number>
         </property>
         <item row="1" column="0">
-         <widget class="QLineEdit" name="BlendFile_2"/>
+         <widget class="QLineEdit" name="BlendFile_2">
+          <property name="placeholderText">
+           <string>Images/myRenders/myProject/myScene001</string>
+          </property>
+         </widget>
         </item>
         <item row="1" column="1">
          <widget class="QToolButton" name="BlendSelect_2">
-          <property name="maximumSize">
-           <size>
-            <width>32</width>
-            <height>32</height>
-           </size>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="text">
            <string>...</string>
@@ -358,11 +360,11 @@
             <height>0</height>
            </size>
           </property>
-          <property name="maximumSize">
-           <size>
-            <width>150</width>
-            <height>32</height>
-           </size>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="mouseTracking">
+           <bool>true</bool>
           </property>
           <item>
            <property name="text">
@@ -415,6 +417,9 @@
     </item>
     <item row="3" column="0">
      <widget class="QCheckBox" name="checkBox">
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Check if you want to launch an animation rendering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
@@ -442,12 +447,6 @@
       </property>
       <item>
        <widget class="QPushButton" name="renderButton">
-        <property name="maximumSize">
-         <size>
-          <width>150</width>
-          <height>32</height>
-         </size>
-        </property>
         <property name="text">
          <string>Render !</string>
         </property>
@@ -474,12 +473,6 @@
       </item>
       <item>
        <widget class="QPushButton" name="closeButton">
-        <property name="maximumSize">
-         <size>
-          <width>150</width>
-          <height>32</height>
-         </size>
-        </property>
         <property name="text">
          <string>Quit</string>
         </property>
