@@ -21,6 +21,14 @@ private slots:
 
     void on_actionAbout_Qt_triggered();
 
+    void on_BlenderPathSelect_clicked();
+
+    void on_BlendSelect_clicked();
+
+    void on_SaveRenderSelect_clicked();
+
+    void on_actionAbout_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

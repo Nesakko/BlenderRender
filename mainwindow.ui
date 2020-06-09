@@ -183,7 +183,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QSpinBox" name="frameS_Select">
+         <widget class="QSpinBox" name="frameStart">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -191,10 +191,10 @@
            </size>
           </property>
           <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Corresponds to the start frame to render for an animation&lt;/p&gt;&lt;p&gt;or defines the frame to render in case of single image render.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Corresponds to the start frame to render for an animation.&lt;/p&gt;&lt;p&gt;Or defines the default frame to render in case of single image render.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="whatsThis">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Corresponds to the start frame to render for an animation&lt;/p&gt;&lt;p&gt;or defines the frame to render in case of single image render.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Corresponds to the start frame to render for an animation.&lt;/p&gt;&lt;p&gt;Or defines the default frame to render in case of single image render.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="buttonSymbols">
            <enum>QAbstractSpinBox::PlusMinus</enum>
@@ -243,7 +243,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QSpinBox" name="frameE_Select">
+         <widget class="QSpinBox" name="frameEnd">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -306,14 +306,14 @@
          <number>6</number>
         </property>
         <item row="1" column="0">
-         <widget class="QLineEdit" name="BlendFile_2">
+         <widget class="QLineEdit" name="SaveRender">
           <property name="placeholderText">
            <string>Images/myRenders/myProject/myScene001</string>
           </property>
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QToolButton" name="BlendSelect_2">
+         <widget class="QToolButton" name="SaveRenderSelect">
           <property name="cursor">
            <cursorShape>PointingHandCursor</cursorShape>
           </property>
@@ -353,7 +353,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QComboBox" name="comboBox">
+         <widget class="QComboBox" name="ExtentionFile">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -504,7 +504,7 @@
      <x>0</x>
      <y>0</y>
      <width>670</width>
-     <height>30</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
@@ -544,7 +544,7 @@
     <string>Documentation</string>
    </property>
    <property name="shortcut">
-    <string>F3</string>
+    <string>F1</string>
    </property>
   </action>
   <action name="actionAbout">
@@ -554,16 +554,10 @@
    <property name="toolTip">
     <string>About</string>
    </property>
-   <property name="shortcut">
-    <string>F1</string>
-   </property>
   </action>
   <action name="actionAbout_Qt">
    <property name="text">
     <string>About Qt</string>
-   </property>
-   <property name="shortcut">
-    <string>F2</string>
    </property>
   </action>
  </widget>
@@ -573,12 +567,12 @@
   <tabstop>BlenderPath</tabstop>
   <tabstop>BlendSelect</tabstop>
   <tabstop>BlendFile</tabstop>
-  <tabstop>comboBox</tabstop>
-  <tabstop>BlendSelect_2</tabstop>
-  <tabstop>BlendFile_2</tabstop>
+  <tabstop>ExtentionFile</tabstop>
+  <tabstop>SaveRenderSelect</tabstop>
+  <tabstop>SaveRender</tabstop>
   <tabstop>checkBox</tabstop>
-  <tabstop>frameS_Select</tabstop>
-  <tabstop>frameE_Select</tabstop>
+  <tabstop>frameStart</tabstop>
+  <tabstop>frameEnd</tabstop>
   <tabstop>closeButton</tabstop>
  </tabstops>
  <resources/>
