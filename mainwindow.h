@@ -16,15 +16,10 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_toolButton_triggered(QAction *arg1);
 
     void on_closeButton_clicked();
 
-    void on_closeButton_pressed();
-
     void on_actionAbout_Qt_triggered();
-
-    void on_renderButton_pressed();
 
 private:
     Ui::MainWindow *ui;
