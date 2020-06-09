@@ -14,3 +14,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::on_closeButton_clicked()
+{
+    QApplication::quit();
+}
+
+void MainWindow::on_actionAbout_Qt_triggered()
+{
+    QMessageBox::aboutQt(this, "About Qt");
+}
