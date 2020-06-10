@@ -18,11 +18,15 @@ public:
     QString cmd;
     QString st;
     QString end;
-    QString a;
+    QString setFrame;
+    QString anim;
     QString format;
     QString blend;
-    QString bi;
-    bool anim;
+    QString binst;
+    QString Engine;
+    QString SaveAs;
+
+    bool animCheck;
 
 
 private slots:
@@ -40,6 +44,9 @@ private slots:
     void on_comboBox_activated(const QString &arg1);
 
     void on_checkBox_toggled(bool checked);
+
+    void on_renderButton_clicked();
+
 
 private:
     Ui::MainWindow *ui;

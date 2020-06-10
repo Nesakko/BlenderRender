@@ -4,6 +4,8 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QDir>
+#include <QTimer>
+
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -11,19 +13,23 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    connect(ui->frameEnd, SIGNAL(st), ui->CommandLineInput, SLOT(st));
 
+    //if is an animation, add the frame start and end
+    if(animCheck ==false)
+        setFrame = st + end;
+    else
+        setFrame = st;
 
-    // Set default value
-    st = " -f 1";
-    end = "-e 250";
-    format = " -F PNG";
+    //Command to execute, and test
+    binst = "Blender";
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
 
 void MainWindow::on_closeButton_clicked()
 {
@@ -44,7 +50,10 @@ void MainWindow::on_actionAbout_triggered()
 
 void MainWindow::on_frameStart_valueChanged(const QString &arg1)
 {
-    st = " -f " +arg1;
+    if(animCheck==false)
+        st = " -f " + arg1;
+    else
+        st = " -s " + arg1;
 
     qDebug() << st << endl;
 }
@@ -65,6 +74,13 @@ void MainWindow::on_comboBox_activated(const QString &arg1)
 
 void MainWindow::on_checkBox_toggled(bool checked)
 {
-    anim = checked;
-    qDebug() << anim << endl;
+    animCheck = checked;
+    qDebug() << animCheck << endl;
 }
+
+void MainWindow::on_renderButton_clicked()
+{
+    qDebug() << binst + " -b" + " file.blend" + format + st + end << endl;
+}
+
+
