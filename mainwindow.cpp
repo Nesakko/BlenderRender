@@ -5,6 +5,7 @@
 #include <QFileDialog>
 #include <QDir>
 #include <QTimer>
+#include <QProcess>
 
 #include <QDebug>
 
@@ -14,16 +15,26 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    //if is an animation, add the frame start and end
-    if(animCheck ==false)
-        setFrame = st + end;
-    else
-        setFrame = st;
-
     //Command to execute, and test
-    binst = "Blender";
+    binst = "blender";
+    st = " -f 1";
+
+/*
+    //if is an animation, add the frame start and end
+    if(animCheck)
+        setFrame = st;
+    else
+        setFrame = st + end;
+*/
+
+    ui->CommandLine->setText(binst + " -b " + blend + format + st);
+
+    //update variable
+
 
 }
+
+
 
 MainWindow::~MainWindow()
 {
@@ -39,13 +50,13 @@ void MainWindow::on_closeButton_clicked()
 void MainWindow::on_actionAbout_Qt_triggered()
 {
     QMessageBox::aboutQt(this, "About Qt");
-    qDebug() << "Clicked AboutQT" << endl;
+    qDebug() << "Clicked AboutQT";
 }
 
 void MainWindow::on_actionAbout_triggered()
 {
     QMessageBox::information(this, "About", "Project under LGPL v3 licence. Created with love by Nesakko, you can get the source on github : https://github.com/Nesakko/BlenderRender");
-    qDebug() << "Clicked About" << endl;
+    qDebug() << "Clicked About";
 }
 
 void MainWindow::on_frameStart_valueChanged(const QString &arg1)
@@ -54,33 +65,72 @@ void MainWindow::on_frameStart_valueChanged(const QString &arg1)
         st = " -f " + arg1;
     else
         st = " -s " + arg1;
+    ui->CommandLine->setText(binst + " -b " + blend + format + st);
 
-    qDebug() << st << endl;
+    qDebug() << st;
 }
 
 void MainWindow::on_frameEnd_valueChanged(const QString &arg1)
 {
     end = " -e " + arg1;
+    ui->CommandLine->setText(binst + " -b " + blend + format + st);
 
-    qDebug() << end << endl;
+    qDebug() << end;
 }
 
 void MainWindow::on_comboBox_activated(const QString &arg1)
 {
     format = " -F " + arg1;
+    ui->CommandLine->setText(binst + " -b " + blend + format + st);
 
-    qDebug() << format << endl;
+    qDebug() << format;
 }
 
 void MainWindow::on_checkBox_toggled(bool checked)
 {
     animCheck = checked;
-    qDebug() << animCheck << endl;
+
+    if(checked)
+        anim = " -a";
+    else
+        anim = "";
+
+    if(checked)
+        ui->label_2->setText("Frame Start");
+    else
+        ui->label_2->setText("Frame to render");
+
+    ui->CommandLine->setText(binst + " -b " + blend + format + st);
+
+    qDebug() << animCheck;
+}
+
+void MainWindow::on_BlenderPathSelect_clicked()
+{
+    QString Bdir = QFileDialog::getExistingDirectory(this, tr("Select Blender installation folder"), QDir::homePath(), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+    binst = Bdir;
+
+    ui->BlenderPath->setText(binst);
+    ui->CommandLine->setText(binst + " -b " + blend + format + st);
+
+    qDebug() << binst;
+}
+
+void MainWindow::on_BlendSelect_clicked()
+{
+    QString filter = "Blender scene (*.blend) ;; All files (*.*)";
+    QString blendfile = QFileDialog::getOpenFileName(this, "Open Blender file", QDir::homePath(), filter);
+    blend = blendfile;
+
+    ui->BlendFile->setText(blend);
+    ui->CommandLine->setText(binst + " -b " + blend + format + st);
+
+    qDebug() << "the file " + blend + " was selected";
 }
 
 void MainWindow::on_renderButton_clicked()
 {
-    qDebug() << binst + " -b" + " file.blend" + format + st + end << endl;
+    ui->CommandLine->setText(binst + " -b " + blend + format + st);
+
+    qDebug() << "render !! ";
 }
-
-

@@ -45,6 +45,10 @@ private slots:
 
     void on_checkBox_toggled(bool checked);
 
+    void on_BlenderPathSelect_clicked();
+
+    void on_BlendSelect_clicked();
+
     void on_renderButton_clicked();
 
 
