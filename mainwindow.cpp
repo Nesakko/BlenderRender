@@ -131,12 +131,7 @@ void MainWindow::on_BlenderPath_textChanged(const QString &arg1)
 
 void MainWindow::on_BlendFile_textChanged(const QString &arg1)
 {
-    QString b;
-
-    if(b == "")
-        blend = "blender";
-    else
-        blend = arg1;
+    blend = arg1;
 
     ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
 
