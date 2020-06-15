@@ -12,7 +12,6 @@ int main(int argc, char *argv[])
     // Translaton
 
     QTranslator t;
-    QTranslator guiTranslator;
 
     QStringList languages;
     languages << "English" << "Français";
@@ -20,13 +19,13 @@ int main(int argc, char *argv[])
     QString lang = QInputDialog::getItem(NULL, "Select Language", "Language", languages);
 
     if (lang == "Français"){
-        t.load("qrc:/BlenderRender_fr_FR.qm");
+        t.load(":/BlenderRender_fr_FR.qm");
     }
     else if (lang == "English") {
-        t.load("qrc:/BlenderRender_en_US.qm");
+        t.load(":/BlenderRender_en_US.qm");
     }
 
-    a.installTranslator(&t);
+    //a.installTranslator(&t);
 
     // translation end
 

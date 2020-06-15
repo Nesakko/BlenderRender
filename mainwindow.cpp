@@ -62,9 +62,9 @@ void MainWindow::on_actionAbout_triggered()
 void MainWindow::on_frameStart_valueChanged(const QString &arg1)
 {
     if(animCheck==false)
-        st = " -f " + arg1;
+        st = " --render-frame " + arg1;
     else
-        st = " -s " + arg1;
+        st = " --frame-start " + arg1;
     ui->CommandLine->setText(binst + " -b " + blend + format + st);
 
     qDebug() << st;
@@ -72,7 +72,7 @@ void MainWindow::on_frameStart_valueChanged(const QString &arg1)
 
 void MainWindow::on_frameEnd_valueChanged(const QString &arg1)
 {
-    end = " -e " + arg1;
+    end = " --frame-end " + arg1;
     ui->CommandLine->setText(binst + " -b " + blend + format + st);
 
     qDebug() << end;
@@ -111,9 +111,8 @@ void MainWindow::on_BlenderPathSelect_clicked()
     binst = Bdir;
 
     ui->BlenderPath->setText(binst);
-    ui->CommandLine->setText(binst + " -b " + blend + format + st);
 
-    qDebug() << binst;
+    qDebug() << "The folder " + binst + "was selected";
 }
 
 void MainWindow::on_BlendSelect_clicked()
@@ -123,14 +122,28 @@ void MainWindow::on_BlendSelect_clicked()
     blend = blendfile;
 
     ui->BlendFile->setText(blend);
+
+    qDebug() << "File " + blend + " was selected";
+}
+
+void MainWindow::on_BlenderPath_textChanged(const QString &arg1)
+{
+    binst = arg1;
     ui->CommandLine->setText(binst + " -b " + blend + format + st);
 
-    qDebug() << "the file " + blend + " was selected";
+    qDebug() << "The Blender install text was changed to : " + binst;
+}
+
+void MainWindow::on_BlendFile_textChanged(const QString &arg1)
+{
+    blend = arg1;
+    ui->CommandLine->setText(binst + " -b " + blend + format + st);
+
+    qDebug() << "The blender file text was changed to : " + blend;
 }
 
 void MainWindow::on_renderButton_clicked()
 {
-    ui->CommandLine->setText(binst + " -b " + blend + format + st);
-
     qDebug() << "render !! ";
 }
+

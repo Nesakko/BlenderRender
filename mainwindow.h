@@ -15,7 +15,6 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    QString cmd;
     QString st;
     QString end;
     QString setFrame;
@@ -49,8 +48,11 @@ private slots:
 
     void on_BlendSelect_clicked();
 
-    void on_renderButton_clicked();
+    void on_BlenderPath_textChanged(const QString &arg1);
 
+    void on_BlendFile_textChanged(const QString &arg1);
+
+    void on_renderButton_clicked();
 
 private:
     Ui::MainWindow *ui;
