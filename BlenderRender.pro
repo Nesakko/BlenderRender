@@ -26,9 +26,13 @@ FORMS += \
     mainwindow.ui
 
 TRANSLATIONS += \
-    BlenderRender_en_US.ts
+    BlenderRender_en_US.ts \
+    BlenderRender_fr_FR.ts
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Translations.qrc
