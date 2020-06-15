@@ -4,7 +4,6 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QDir>
-#include <QTimer>
 #include <QProcess>
 
 #include <QDebug>
@@ -15,25 +14,14 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    //Command to execute, and test
+    //Default param
     binst = "blender";
     st = " -f 1";
+    format = " -F PNG";
 
-/*
-    //if is an animation, add the frame start and end
-    if(animCheck)
-        setFrame = st;
-    else
-        setFrame = st + end;
-*/
-
-    ui->CommandLine->setText(binst + " -b " + blend + format + st);
-
-    //update variable
-
-
+    // Default command line
+    ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
 }
-
 
 
 MainWindow::~MainWindow()
@@ -62,18 +50,18 @@ void MainWindow::on_actionAbout_triggered()
 void MainWindow::on_frameStart_valueChanged(const QString &arg1)
 {
     if(animCheck==false)
-        st = " --render-frame " + arg1;
+        st = " -f " + arg1;
     else
-        st = " --frame-start " + arg1;
-    ui->CommandLine->setText(binst + " -b " + blend + format + st);
+        st = " -s " + arg1;
+    ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
 
     qDebug() << st;
 }
 
 void MainWindow::on_frameEnd_valueChanged(const QString &arg1)
 {
-    end = " --frame-end " + arg1;
-    ui->CommandLine->setText(binst + " -b " + blend + format + st);
+    end = " -e " + arg1;
+    ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
 
     qDebug() << end;
 }
@@ -81,7 +69,7 @@ void MainWindow::on_frameEnd_valueChanged(const QString &arg1)
 void MainWindow::on_comboBox_activated(const QString &arg1)
 {
     format = " -F " + arg1;
-    ui->CommandLine->setText(binst + " -b " + blend + format + st);
+    ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
 
     qDebug() << format;
 }
@@ -100,7 +88,7 @@ void MainWindow::on_checkBox_toggled(bool checked)
     else
         ui->label_2->setText("Frame to render");
 
-    ui->CommandLine->setText(binst + " -b " + blend + format + st);
+    ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
 
     qDebug() << animCheck;
 }
@@ -128,22 +116,64 @@ void MainWindow::on_BlendSelect_clicked()
 
 void MainWindow::on_BlenderPath_textChanged(const QString &arg1)
 {
-    binst = arg1;
-    ui->CommandLine->setText(binst + " -b " + blend + format + st);
+    QString b;
+    b = arg1;
+
+    if(b == "")
+        binst = "blender";
+    else
+        binst = arg1;
+
+    ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
 
     qDebug() << "The Blender install text was changed to : " + binst;
 }
 
 void MainWindow::on_BlendFile_textChanged(const QString &arg1)
 {
-    blend = arg1;
-    ui->CommandLine->setText(binst + " -b " + blend + format + st);
+    QString b;
+
+    if(b == "")
+        blend = "blender";
+    else
+        blend = arg1;
+
+    ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
 
     qDebug() << "The blender file text was changed to : " + blend;
+}
+
+void MainWindow::on_RenderEngine_currentIndexChanged(int index)
+{
+    if(index == 0){
+        Engine = "";
+        ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
+
+        qDebug() << "Use engine selected in the blend file";
+    }
+    else if(index == 1){
+        Engine = " -E CYCLES";
+        ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
+
+        qDebug() << "Swithed to " + Engine + " render engine";
+    }
+    else if(index == 2){
+        Engine = " -E BLENDER_EEVEE";
+        ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
+
+        qDebug() << "Swithed to " + Engine + " render engine";
+    }
+    else if(index == 3){
+        Engine = " -E BLENDER_WORKBENCH";
+        ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
+
+        qDebug() << "Swithed to " + Engine + " render engine";
+    }
+
+    qDebug() << index;
 }
 
 void MainWindow::on_renderButton_clicked()
 {
     qDebug() << "render !! ";
 }
-

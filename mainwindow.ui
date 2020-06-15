@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>775</width>
-    <height>450</height>
+    <height>483</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -335,6 +335,11 @@
           <height>32</height>
          </size>
         </property>
+        <item>
+         <property name="text">
+          <string>From File</string>
+         </property>
+        </item>
         <item>
          <property name="text">
           <string>Cycles</string>
@@ -717,7 +722,7 @@
      <x>0</x>
      <y>0</y>
      <width>775</width>
-     <height>23</height>
+     <height>30</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
@@ -789,7 +794,9 @@
   <tabstop>RenderEngine</tabstop>
   <tabstop>closeButton</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="Translations/Translations.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>checkBox</sender>

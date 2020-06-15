@@ -15,8 +15,8 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="96"/>
-        <location filename="../mainwindow.ui" line="639"/>
-        <location filename="../mainwindow.ui" line="691"/>
+        <location filename="../mainwindow.ui" line="644"/>
+        <location filename="../mainwindow.ui" line="696"/>
         <source>...</source>
         <translation>...</translation>
     </message>
@@ -103,115 +103,120 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="340"/>
+        <source>From File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="345"/>
         <source>Cycles</source>
         <translation>Cycles</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="345"/>
-        <source>EEVEE</source>
-        <translation>Cycles</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="350"/>
-        <source>Workbench</source>
-        <translation>Cycles</translation>
+        <source>EEVEE</source>
+        <translation>EEVEE</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="377"/>
+        <location filename="../mainwindow.ui" line="355"/>
+        <source>Workbench</source>
+        <translation>Workbench</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="382"/>
         <source>Frame to render</source>
         <translation>Frame à rendre</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="402"/>
-        <location filename="../mainwindow.ui" line="405"/>
+        <location filename="../mainwindow.ui" line="407"/>
+        <location filename="../mainwindow.ui" line="410"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Corresponds to the start frame to render for an animation&lt;/p&gt;&lt;p&gt;or defines the frame to render in case of single image render.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Correspond à la première frame à rendre pour l&apos;animation&lt;/p&gt;&lt;p&gt;Ou défini la frame a rendre, dans le cas d&apos;un rendu d&apos;une seule image&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="469"/>
-        <location filename="../mainwindow.ui" line="472"/>
+        <location filename="../mainwindow.ui" line="474"/>
+        <location filename="../mainwindow.ui" line="477"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Check if you want to launch an animation rendering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cochez la case pour lancer le rendu d&apos;une animation&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="475"/>
+        <location filename="../mainwindow.ui" line="480"/>
         <source>Animation</source>
         <translation>Animation</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="529"/>
+        <location filename="../mainwindow.ui" line="534"/>
         <source>Render !</source>
         <translation>Rendu !!!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="567"/>
+        <location filename="../mainwindow.ui" line="572"/>
         <source>Quit</source>
         <translation>Quitter</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="610"/>
+        <location filename="../mainwindow.ui" line="615"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If you want to use your default Blender installation and if Blender is already added to your PATH directory, leave this option empty&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Si vous souhaitez utiliser votre installation Blender par défaut et si Blender est ajouté à PATH, laissez cette option vide&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="616"/>
+        <location filename="../mainwindow.ui" line="621"/>
         <source>Empty if using the default Blender installation</source>
         <translation>Laissez vide pour utiliser l&apos;instllation Blender par défaut</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="623"/>
+        <location filename="../mainwindow.ui" line="628"/>
         <source>Path to Blender</source>
         <translation>Chemin vers Blender</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="665"/>
+        <location filename="../mainwindow.ui" line="670"/>
         <source>Blender file to render</source>
         <translation>Fichier Blender à rendre</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="678"/>
+        <location filename="../mainwindow.ui" line="683"/>
         <source>myScene.blend</source>
         <translation>myScene.blend</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="708"/>
+        <location filename="../mainwindow.ui" line="713"/>
         <source>%p%</source>
         <translation>%p%</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="725"/>
+        <location filename="../mainwindow.ui" line="730"/>
         <source>Help</source>
         <translation>Aide</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="729"/>
-        <location filename="../mainwindow.ui" line="767"/>
-        <location filename="../mainwindow.ui" line="770"/>
+        <location filename="../mainwindow.ui" line="734"/>
+        <location filename="../mainwindow.ui" line="772"/>
+        <location filename="../mainwindow.ui" line="775"/>
         <source>About</source>
         <translation>À propos</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="742"/>
+        <location filename="../mainwindow.ui" line="747"/>
         <source>toolBar</source>
         <translation>toolBar</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="759"/>
+        <location filename="../mainwindow.ui" line="764"/>
         <source>Documentation</source>
         <translation>Documentation</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="762"/>
+        <location filename="../mainwindow.ui" line="767"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="775"/>
+        <location filename="../mainwindow.ui" line="780"/>
         <source>About Qt</source>
         <translation>À propos de Qt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="110"/>
+        <location filename="../mainwindow.cpp" line="113"/>
         <source>Select Blender installation folder</source>
         <translation>Selectionnez votre dossier d&apos;installation de blender</translation>
     </message>

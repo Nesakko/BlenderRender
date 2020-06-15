@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QLabel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,6 +16,8 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
+    QString cmd;
     QString st;
     QString end;
     QString setFrame;
@@ -23,7 +26,7 @@ public:
     QString blend;
     QString binst;
     QString Engine;
-    QString SaveAs;
+    QString SaveAs;    
 
     bool animCheck;
 
@@ -51,6 +54,8 @@ private slots:
     void on_BlenderPath_textChanged(const QString &arg1);
 
     void on_BlendFile_textChanged(const QString &arg1);
+
+    void on_RenderEngine_currentIndexChanged(int index);
 
     void on_renderButton_clicked();
 
