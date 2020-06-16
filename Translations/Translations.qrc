@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
         <file>BlenderRender_fr_FR.qm</file>
-        <file>BlenderRender_en_US.qm</file>
     </qresource>
 </RCC>

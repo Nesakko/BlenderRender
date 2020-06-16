@@ -18,9 +18,6 @@ int main(int argc, char *argv[])
     if (lang == "Français"){
         t.load(":/BlenderRender_fr_FR.qm");
     }
-    else if(lang != "English") {
-        t.load(":/BlenderRender_en_US.qm");
-    }
 
     a.installTranslator(&t);
     // translation end
