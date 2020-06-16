@@ -4,7 +4,6 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QDir>
-#include <QProcess>
 
 #include <QDebug>
 
@@ -14,13 +13,14 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    //Default param
+    //Default arguments
     binst = "blender";
-    st = " -f 1";
-    format = " -F PNG";
+    stdef = " -f ";
+    st = "1";
 
-    // Default command line
-    ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
+    // Default command line on start
+    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
+
 }
 
 
@@ -29,6 +29,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+    //  ui actions and buttons
 
 void MainWindow::on_closeButton_clicked()
 {
@@ -49,27 +51,55 @@ void MainWindow::on_actionAbout_triggered()
 
 void MainWindow::on_frameStart_valueChanged(const QString &arg1)
 {
-    if(animCheck==false)
-        st = " -f " + arg1;
-    else
-        st = " -s " + arg1;
-    ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
+    st = arg1;
+    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
 
     qDebug() << st;
 }
 
 void MainWindow::on_frameEnd_valueChanged(const QString &arg1)
 {
-    end = " -e " + arg1;
-    ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
+    end = arg1;
+    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
 
     qDebug() << end;
 }
 
-void MainWindow::on_comboBox_activated(const QString &arg1)
+void MainWindow::on_FormatSelect_activated(int index)
 {
-    format = " -F " + arg1;
-    ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
+
+    if(index == 0){
+        format = "";
+    }
+    else if (index == 1) {
+        format = " -F PNG";
+    }
+    else if (index == 2) {
+        format = " -F JPEG";
+    }
+    else if (index == 3) {
+        format = " -F EXR";
+    }
+    else if (index == 4) {
+        format = " -F MULTILAYER";
+    }
+    else if (index == 5) {
+        format = " -F BMP";
+    }
+    else if (index == 6) {
+        format = " -F TGA";
+    }
+    else if (index == 7) {
+        format = " -F RAWTGA";
+    }
+    else if (index == 8) {
+        format = " -F TIFF";
+    }
+    else if (index == 9) {
+        format = " -F HDR";
+    }
+
+    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
 
     qDebug() << format;
 }
@@ -78,17 +108,21 @@ void MainWindow::on_checkBox_toggled(bool checked)
 {
     animCheck = checked;
 
-    if(checked)
+    if(checked){
         anim = " -a";
-    else
-        anim = "";
-
-    if(checked)
+        stdef = " -s ";
+        enddef = " -e ";
         ui->label_2->setText("Frame Start");
-    else
+    }
+    else{
+        anim = "";
+        stdef = " -f ";
+        enddef = "";
+        end = "";
         ui->label_2->setText("Frame to render");
+    }
 
-    ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
+    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
 
     qDebug() << animCheck;
 }
@@ -124,7 +158,7 @@ void MainWindow::on_BlenderPath_textChanged(const QString &arg1)
     else
         binst = arg1;
 
-    ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
+    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
 
     qDebug() << "The Blender install text was changed to : " + binst;
 }
@@ -133,7 +167,7 @@ void MainWindow::on_BlendFile_textChanged(const QString &arg1)
 {
     blend = arg1;
 
-    ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
+    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
 
     qDebug() << "The blender file text was changed to : " + blend;
 }
@@ -141,34 +175,61 @@ void MainWindow::on_BlendFile_textChanged(const QString &arg1)
 void MainWindow::on_RenderEngine_currentIndexChanged(int index)
 {
     if(index == 0){
-        Engine = "";
-        ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
+        Engine = ""; // Set the value empty, to use the engine selected in the blender files
 
         qDebug() << "Use engine selected in the blend file";
     }
     else if(index == 1){
         Engine = " -E CYCLES";
-        ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
 
         qDebug() << "Swithed to " + Engine + " render engine";
     }
     else if(index == 2){
         Engine = " -E BLENDER_EEVEE";
-        ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
 
         qDebug() << "Swithed to " + Engine + " render engine";
     }
     else if(index == 3){
         Engine = " -E BLENDER_WORKBENCH";
-        ui->CommandLine->setText(binst + " -b " + blend + Engine + format + st);
 
         qDebug() << "Swithed to " + Engine + " render engine";
     }
 
-    qDebug() << index;
+    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
 }
 
 void MainWindow::on_renderButton_clicked()
 {
-    qDebug() << "render !! ";
+    if(blend == ""){
+        QMessageBox::critical(this, "Error", "You can't render nothing, select a blender file to render !! xD ");
+        qDebug() << "Hahaha errooooooorrrrr !!!";
+    }
+    else
+        qDebug() << "render !! ";
+}
+
+void MainWindow::on_SaveRenderSelect_clicked()
+{
+    QString Sdir = QFileDialog::getExistingDirectory(this, tr("Select image save folder"), QDir::homePath(), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+    SaveAs = Sdir;
+
+    ui->SaveRender->setText(SaveAs);
+
+    qDebug() << "The folder " + SaveAs + "was selected";
+}
+
+
+void MainWindow::on_SaveRender_textChanged(const QString &arg1)
+{
+    QString s;
+    s = arg1;
+
+    if(s == "")
+        SaveAs = "";
+    else
+        SaveAs = " -o " + arg1;
+
+    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
+
+    qDebug() << "The image save text was changed to : " + SaveAs;
 }

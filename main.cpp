@@ -6,11 +6,8 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
 
     // Translaton
-
     QTranslator t;
 
     QStringList languages;
@@ -21,13 +18,14 @@ int main(int argc, char *argv[])
     if (lang == "Français"){
         t.load(":/BlenderRender_fr_FR.qm");
     }
-    else if (lang == "English") {
+    else if(lang != "English") {
         t.load(":/BlenderRender_en_US.qm");
     }
 
-    //a.installTranslator(&t);
-
+    a.installTranslator(&t);
     // translation end
 
+    MainWindow w;
+    w.show();
     return a.exec();
 }

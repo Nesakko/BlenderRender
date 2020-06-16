@@ -1,16 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>About</class>
- <widget name="About" class="QDialog">
+ <widget class="QDialog" name="About">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>330</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>About</string>
   </property>
  </widget>
  <resources/>

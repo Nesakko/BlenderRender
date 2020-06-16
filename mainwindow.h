@@ -2,7 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QLabel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,14 +18,17 @@ public:
 
     QString cmd;
     QString st;
+    QString stdef;
     QString end;
+    QString enddef;
     QString setFrame;
     QString anim;
     QString format;
     QString blend;
     QString binst;
     QString Engine;
-    QString SaveAs;    
+    QString SaveAs;
+    QString formatdef;
 
     bool animCheck;
 
@@ -43,7 +45,7 @@ private slots:
 
     void on_frameEnd_valueChanged(const QString &arg1);
 
-    void on_comboBox_activated(const QString &arg1);
+    void on_FormatSelect_activated(int index);
 
     void on_checkBox_toggled(bool checked);
 
@@ -58,6 +60,10 @@ private slots:
     void on_RenderEngine_currentIndexChanged(int index);
 
     void on_renderButton_clicked();
+
+    void on_SaveRenderSelect_clicked();
+
+    void on_SaveRender_textChanged(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;
