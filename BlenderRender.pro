@@ -29,7 +29,6 @@ FORMS += \
     mainwindow.ui
 
 TRANSLATIONS += \
-    Translations/BlenderRender_en_US.ts \
     Translations/BlenderRender_fr_FR.ts
 
 # Default rules for deployment.

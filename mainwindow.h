@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "about.h"
+
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -14,23 +16,6 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
-
-    QString cmd;
-    QString st;
-    QString stdef;
-    QString end;
-    QString enddef;
-    QString setFrame;
-    QString anim;
-    QString format;
-    QString blend;
-    QString binst;
-    QString Engine;
-    QString SaveAs;
-    QString formatdef;
-
-    bool animCheck;
 
 
 private slots:
@@ -68,5 +53,21 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
+    About about;
+
+    QString cmd;
+    QString st;
+    QString stdef;
+    QString end;
+    QString enddef;
+    QString setFrame;
+    QString anim;
+    QString format;
+    QString blend;
+    QString binst;
+    QString Engine;
+    QString SaveAs;
+
+    bool animCheck;
 };
 #endif // MAINWINDOW_H

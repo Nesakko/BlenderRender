@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+
 #include <QApplication>
 #include <QTranslator>
 #include <QInputDialog>
@@ -6,7 +7,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-
+/*
     // Translaton
     QTranslator t;
 
@@ -19,8 +20,11 @@ int main(int argc, char *argv[])
         t.load(":/BlenderRender_fr_FR.qm");
     }
 
-    a.installTranslator(&t);
+    if (lang != "English")
+        a.installTranslator(&t);
+
     // translation end
+*/
 
     MainWindow w;
     w.show();

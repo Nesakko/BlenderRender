@@ -20,9 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Default command line on start
     ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
-
 }
-
 
 MainWindow::~MainWindow()
 {
@@ -45,8 +43,10 @@ void MainWindow::on_actionAbout_Qt_triggered()
 
 void MainWindow::on_actionAbout_triggered()
 {
-    QMessageBox::information(this, "About", "Project under LGPL v3 licence. Created with love by Nesakko, you can get the source on github : https://github.com/Nesakko/BlenderRender");
+    about.show();
+
     qDebug() << "Clicked About";
+
 }
 
 void MainWindow::on_frameStart_valueChanged(const QString &arg1)
@@ -67,37 +67,26 @@ void MainWindow::on_frameEnd_valueChanged(const QString &arg1)
 
 void MainWindow::on_FormatSelect_activated(int index)
 {
-
-    if(index == 0){
+    if(index == 0)
         format = "";
-    }
-    else if (index == 1) {
+    else if (index == 1)
         format = " -F PNG";
-    }
-    else if (index == 2) {
+    else if (index == 2)
         format = " -F JPEG";
-    }
-    else if (index == 3) {
+    else if (index == 3)
         format = " -F EXR";
-    }
-    else if (index == 4) {
+    else if (index == 4)
         format = " -F MULTILAYER";
-    }
-    else if (index == 5) {
+    else if (index == 5)
         format = " -F BMP";
-    }
-    else if (index == 6) {
+    else if (index == 6)
         format = " -F TGA";
-    }
-    else if (index == 7) {
+    else if (index == 7)
         format = " -F RAWTGA";
-    }
-    else if (index == 8) {
+    else if (index == 8)
         format = " -F TIFF";
-    }
-    else if (index == 9) {
+    else if (index == 9)
         format = " -F HDR";
-    }
 
     ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
 
@@ -145,7 +134,7 @@ void MainWindow::on_BlendSelect_clicked()
 
     ui->BlendFile->setText(blend);
 
-    qDebug() << "File " + blend + " was selected";
+    qDebug() << "File " + blend + " selected";
 }
 
 void MainWindow::on_BlenderPath_textChanged(const QString &arg1)
@@ -159,8 +148,6 @@ void MainWindow::on_BlenderPath_textChanged(const QString &arg1)
         binst = arg1;
 
     ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
-
-    qDebug() << "The Blender install text was changed to : " + binst;
 }
 
 void MainWindow::on_BlendFile_textChanged(const QString &arg1)
@@ -168,30 +155,24 @@ void MainWindow::on_BlendFile_textChanged(const QString &arg1)
     blend = arg1;
 
     ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
-
-    qDebug() << "The blender file text was changed to : " + blend;
 }
 
 void MainWindow::on_RenderEngine_currentIndexChanged(int index)
 {
     if(index == 0){
-        Engine = ""; // Set the value empty, to use the engine selected in the blender files
-
+        Engine = "";
         qDebug() << "Use engine selected in the blend file";
     }
     else if(index == 1){
         Engine = " -E CYCLES";
-
         qDebug() << "Swithed to " + Engine + " render engine";
     }
     else if(index == 2){
         Engine = " -E BLENDER_EEVEE";
-
         qDebug() << "Swithed to " + Engine + " render engine";
     }
     else if(index == 3){
         Engine = " -E BLENDER_WORKBENCH";
-
         qDebug() << "Swithed to " + Engine + " render engine";
     }
 
@@ -201,7 +182,7 @@ void MainWindow::on_RenderEngine_currentIndexChanged(int index)
 void MainWindow::on_renderButton_clicked()
 {
     if(blend == ""){
-        QMessageBox::critical(this, "Error", "You can't render nothing, select a blender file to render !! xD ");
+        //QMessageBox::critical(this, "Error", "You can't render nothing, select a blender file to render !! xD ");
         qDebug() << "Hahaha errooooooorrrrr !!!";
     }
     else
@@ -217,7 +198,6 @@ void MainWindow::on_SaveRenderSelect_clicked()
 
     qDebug() << "The folder " + SaveAs + "was selected";
 }
-
 
 void MainWindow::on_SaveRender_textChanged(const QString &arg1)
 {

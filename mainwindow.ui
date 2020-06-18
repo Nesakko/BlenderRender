@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>710</width>
+    <width>757</width>
     <height>420</height>
    </rect>
   </property>
@@ -774,7 +774,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>710</width>
+     <width>757</width>
      <height>30</height>
     </rect>
    </property>
@@ -855,8 +855,8 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>325</x>
-     <y>272</y>
+     <x>473</x>
+     <y>276</y>
     </hint>
     <hint type="destinationlabel">
      <x>625</x>
@@ -871,12 +871,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>299</x>
-     <y>278</y>
+     <x>473</x>
+     <y>276</y>
     </hint>
     <hint type="destinationlabel">
-     <x>606</x>
-     <y>243</y>
+     <x>689</x>
+     <y>239</y>
     </hint>
    </hints>
   </connection>
