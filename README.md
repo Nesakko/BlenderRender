@@ -13,4 +13,4 @@ In the future I would like to create a rendering queue, so that you can render m
 
 I create this projet as learning purpose and also I wanted a tool like this, so it's the good moment to do it.
 
-Also, I don't have windows or mac computer, so I'm not sure if I make the release myself currently for these OS, without being able to test it.
+Also, I don't have windows or mac computer, so I'm not sure if I make the release myself for these OS at the moment, without being able to test it.
