@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Default command line on start
     ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
+
 }
 
 MainWindow::~MainWindow()
@@ -122,6 +123,7 @@ void MainWindow::on_BlenderPathSelect_clicked()
     binst = Bdir;
 
     ui->BlenderPath->setText(binst);
+    //system()
 
     qDebug() << "The folder " + binst + "was selected";
 }
@@ -181,12 +183,21 @@ void MainWindow::on_RenderEngine_currentIndexChanged(int index)
 
 void MainWindow::on_renderButton_clicked()
 {
+    QString render;
+    render = binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim;
+
+    QByteArray ba = render.toLocal8Bit();
+    const char *c_str_render = ba.data();
+
+
     if(blend == ""){
-        //QMessageBox::critical(this, "Error", "You can't render nothing, select a blender file to render !! xD ");
-        qDebug() << "Hahaha errooooooorrrrr !!!";
+        QMessageBox::critical(this, "Error", "You can't render nothing, select a blender file to render !! xD ");
+        qDebug() << "MWAHAHAHA errooooooorrrrr !!!";
     }
-    else
-        qDebug() << "render !! ";
+    else{
+        system(c_str_render);
+        qDebug() << "Render !! ";
+    }
 }
 
 void MainWindow::on_SaveRenderSelect_clicked()
