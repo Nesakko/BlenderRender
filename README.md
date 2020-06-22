@@ -17,3 +17,8 @@ https://video.autizmo.xyz/videos/watch/c21eb381-da1c-41cd-a0de-ce5b14bf547e
 I create this projet as learning purpose and also I wanted a tool like this, so it's the good moment to do it.
 
 Also, I don't have windows or mac computer, so I'm not sure if I make the release myself for these OS at the moment, without being able to test it.
+
+
+### How to build
+
+Download or clone the project. Currently, you have to open a ternimal in the project folder, do "qmake", and then "make", then run the executable. **I think** ^^
