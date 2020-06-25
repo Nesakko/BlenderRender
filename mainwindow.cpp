@@ -184,20 +184,27 @@ void MainWindow::on_RenderEngine_currentIndexChanged(int index)
 void MainWindow::on_renderButton_clicked()
 {
     QString render;
+    QString bl;
+
     render = binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim;
+    bl = "notify-send 'Blender Render' '" + blend + "'";
 
     QByteArray ba = render.toLocal8Bit();
     const char *c_str_render = ba.data();
-
+    QByteArray inst = bl.toLocal8Bit();
+    const char *c_str_bl = inst.data();
 
     if(blend == ""){
-        QMessageBox::critical(this, "Error", "You can't render nothing, select a blender file to render !! xD ");
+        //QMessageBox::critical(this, "Error", "You can't render nothing, select a blender file to render !! xD ");
+        system("notify-send 'Error' 'You have to add a blend file to render first'");
         qDebug() << "MWAHAHAHA errooooooorrrrr !!!";
     }
     else{
+        system(c_str_bl);
+        qDebug() << c_str_bl;
         system(c_str_render);
-        qDebug() << "Render !! ";
     }
+    qDebug() << "Render button pressed !!";
 }
 
 void MainWindow::on_SaveRenderSelect_clicked()
