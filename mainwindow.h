@@ -50,6 +50,10 @@ private slots:
 
     void on_SaveRender_textChanged(const QString &arg1);
 
+    void on_checkBox_2_toggled(bool checked);
+
+    void on_frameStart_2_valueChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
 
@@ -67,7 +71,9 @@ private:
     QString binst;
     QString Engine;
     QString SaveAs;
+    QString tnum;
 
+    bool toveride;
     bool animCheck;
 };
 #endif // MAINWINDOW_H

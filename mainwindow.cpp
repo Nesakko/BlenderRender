@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
     st = "1";
 
     // Default command line on start
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
+    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
 
 }
 
@@ -53,7 +53,7 @@ void MainWindow::on_actionAbout_triggered()
 void MainWindow::on_frameStart_valueChanged(const QString &arg1)
 {
     st = arg1;
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
+    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
 
     qDebug() << st;
 }
@@ -61,7 +61,7 @@ void MainWindow::on_frameStart_valueChanged(const QString &arg1)
 void MainWindow::on_frameEnd_valueChanged(const QString &arg1)
 {
     end = arg1;
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
+    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
 
     qDebug() << end;
 }
@@ -89,7 +89,7 @@ void MainWindow::on_FormatSelect_activated(int index)
     else if (index == 9)
         format = " -F HDR";
 
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
+    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
 
     qDebug() << format;
 }
@@ -112,18 +112,23 @@ void MainWindow::on_checkBox_toggled(bool checked)
         ui->label_2->setText("Frame to render");
     }
 
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
+    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
 
     qDebug() << animCheck;
 }
 
 void MainWindow::on_BlenderPathSelect_clicked()
 {
+    // Pas bon, a refaire :((
+
     QString Bdir = QFileDialog::getExistingDirectory(this, tr("Select Blender installation folder"), QDir::homePath(), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
     binst = Bdir;
 
-    ui->BlenderPath->setText(binst);
-    //system()
+    //QByteArray ba = binst.toLocal8Bit();
+    //const char *c_str_binst = ba.data();
+
+    //ui->BlenderPath->setText(binst);
+    //system(c_str_binst);
 
     qDebug() << "The folder " + binst + "was selected";
 }
@@ -149,14 +154,14 @@ void MainWindow::on_BlenderPath_textChanged(const QString &arg1)
     else
         binst = arg1;
 
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
+    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
 }
 
 void MainWindow::on_BlendFile_textChanged(const QString &arg1)
 {
     blend = arg1;
 
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
+    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
 }
 
 void MainWindow::on_RenderEngine_currentIndexChanged(int index)
@@ -178,7 +183,7 @@ void MainWindow::on_RenderEngine_currentIndexChanged(int index)
         qDebug() << "Swithed to " + Engine + " render engine";
     }
 
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
+    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
 }
 
 void MainWindow::on_renderButton_clicked()
@@ -186,7 +191,7 @@ void MainWindow::on_renderButton_clicked()
     QString render;
     QString bl;
 
-    render = binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim;
+    render = binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim;
     bl = "notify-send 'Blender Render' '" + blend + "'";
 
     QByteArray ba = render.toLocal8Bit();
@@ -195,8 +200,8 @@ void MainWindow::on_renderButton_clicked()
     const char *c_str_bl = inst.data();
 
     if(blend == ""){
-        //QMessageBox::critical(this, "Error", "You can't render nothing, select a blender file to render !! xD ");
-        system("notify-send 'Error' 'You have to add a blend file to render first'");
+        QMessageBox::critical(this, "Error", "You can't render nothing, select a blender file to render !! xD ");
+        system("notify-send 'Blender Render' 'Error !! You have to add a blend file to render first'");
         qDebug() << "MWAHAHAHA errooooooorrrrr !!!";
     }
     else{
@@ -227,7 +232,25 @@ void MainWindow::on_SaveRender_textChanged(const QString &arg1)
     else
         SaveAs = " -o " + arg1;
 
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + anim);
+    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
 
     qDebug() << "The image save text was changed to : " + SaveAs;
+}
+
+void MainWindow::on_checkBox_2_toggled(bool checked)
+{
+    toveride = checked;
+
+    if(toveride == false)
+        tnum = "";
+
+    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
+}
+
+void MainWindow::on_frameStart_2_valueChanged(const QString &arg1)
+{
+    tnum = " -t " + arg1;
+    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
+
+    qDebug() << tnum;
 }
