@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="Logos">
+    <file>Icons/Bitmaps/Misskey_Light.png</file>
+    <file>Icons/Bitmaps/blenderLight.png</file>
+    <file>Icons/Bitmaps/Diaspora.png</file>
+    <file>Icons/Bitmaps/GitHub-Mark-Light-64px.png</file>
+    <file>Icons/Bitmaps/TwitterLight.png</file>
+  </qresource>
+</RCC>
