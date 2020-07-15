@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="Logos">
+    <file>Icons/Bitmaps/Moins.png</file>
+    <file>Icons/Bitmaps/UpArrow.png</file>
+    <file>Icons/Bitmaps/DownArrow.png</file>
     <file>Icons/Bitmaps/Misskey_Light.png</file>
     <file>Icons/Bitmaps/blenderLight.png</file>
     <file>Icons/Bitmaps/Diaspora.png</file>

@@ -20,39 +20,36 @@ public:
 
 private slots:
 
-    void on_closeButton_clicked();
-
     void on_actionAbout_Qt_triggered();
-
     void on_actionAbout_triggered();
-
     void on_frameStart_valueChanged(const QString &arg1);
-
     void on_frameEnd_valueChanged(const QString &arg1);
-
     void on_FormatSelect_activated(int index);
-
     void on_checkBox_toggled(bool checked);
-
     void on_BlenderPathSelect_clicked();
-
     void on_BlendSelect_clicked();
-
     void on_BlenderPath_textChanged(const QString &arg1);
-
     void on_BlendFile_textChanged(const QString &arg1);
-
     void on_RenderEngine_currentIndexChanged(int index);
-
-    void on_renderButton_clicked();
-
+    void on_btn_Render_clicked();
     void on_SaveRenderSelect_clicked();
-
     void on_SaveRender_textChanged(const QString &arg1);
-
     void on_checkBox_2_toggled(bool checked);
-
-    void on_frameStart_2_valueChanged(const QString &arg1);
+    void on_NumberThread_valueChanged(const QString &arg1);
+    void on_btn_GitHub_clicked();
+    void on_btn_Twitter_clicked();
+    void on_btn_Diaspora_clicked();
+    void on_btn_Misskey_clicked();
+    void on_BtnSide_Render_clicked();
+    void on_BtnSide_Queue_clicked();
+    void on_BtnSide_Param_clicked();
+    void on_BtnSide_Option4_clicked();
+    void on_btn_AddQueue_clicked();
+    /*
+    void on_btn_ListUp_clicked();
+    void on_btn_ListDown_clicked();
+    */
+    void on_btn_ListRemove_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -67,11 +64,14 @@ private:
     QString setFrame;
     QString anim;
     QString format;
+    QString formatIndex;
     QString blend;
     QString binst;
     QString Engine;
+    QString engineIndex;
     QString SaveAs;
     QString tnum;
+    QString currentBlend;
 
     bool toveride;
     bool animCheck;

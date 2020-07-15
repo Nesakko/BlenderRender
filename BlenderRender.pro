@@ -37,4 +37,16 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    Res/Icons.qrc \
     Translations/Translations.qrc
+
+DISTFILES += \
+    Res/CSS/Style.css \
+    Res/Icons/Bitmaps/Diaspora.png \
+    Res/Icons/Bitmaps/GitHub-Mark-Light-64px.png \
+    Res/Icons/Bitmaps/TwitterLight.png \
+    Res/Icons/Bitmaps/blenderLight.png \
+    Res/Icons/Vertors/Diaspora-asterisk.svg \
+    Res/Icons/Vertors/MenuLight.svg \
+    Res/Icons/Vertors/TwitterLight.svg \
+    Res/Icons/Vertors/blenderLight.svg

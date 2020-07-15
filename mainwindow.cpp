@@ -4,6 +4,7 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QDir>
+#include <QDesktopServices>
 
 #include <QDebug>
 
@@ -21,6 +22,12 @@ MainWindow::MainWindow(QWidget *parent)
     // Default command line on start
     ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
 
+    //set ui widget default
+    ui->stackedWidget->setCurrentIndex(0);
+    ui->btn_ListDown->setVisible(false);
+    ui->btn_ListUp->setVisible(false);
+    ui->CommandLine->setVisible(false);
+
 }
 
 MainWindow::~MainWindow()
@@ -28,14 +35,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
     //  ui actions and buttons
-
-void MainWindow::on_closeButton_clicked()
-{
-    QApplication::quit();
-}
-
 void MainWindow::on_actionAbout_Qt_triggered()
 {
     QMessageBox::aboutQt(this, "About Qt");
@@ -45,16 +45,13 @@ void MainWindow::on_actionAbout_Qt_triggered()
 void MainWindow::on_actionAbout_triggered()
 {
     about.show();
-
     qDebug() << "Clicked About";
-
 }
 
 void MainWindow::on_frameStart_valueChanged(const QString &arg1)
 {
     st = arg1;
     ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
-
     qDebug() << st;
 }
 
@@ -62,7 +59,6 @@ void MainWindow::on_frameEnd_valueChanged(const QString &arg1)
 {
     end = arg1;
     ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
-
     qDebug() << end;
 }
 
@@ -90,7 +86,6 @@ void MainWindow::on_FormatSelect_activated(int index)
         format = " -F HDR";
 
     ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
-
     qDebug() << format;
 }
 
@@ -111,9 +106,7 @@ void MainWindow::on_checkBox_toggled(bool checked)
         end = "";
         ui->label_2->setText("Frame to render");
     }
-
     ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
-
     qDebug() << animCheck;
 }
 
@@ -140,7 +133,6 @@ void MainWindow::on_BlendSelect_clicked()
     blend = blendfile;
 
     ui->BlendFile->setText(blend);
-
     qDebug() << "File " + blend + " selected";
 }
 
@@ -160,7 +152,6 @@ void MainWindow::on_BlenderPath_textChanged(const QString &arg1)
 void MainWindow::on_BlendFile_textChanged(const QString &arg1)
 {
     blend = arg1;
-
     ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
 }
 
@@ -182,11 +173,10 @@ void MainWindow::on_RenderEngine_currentIndexChanged(int index)
         Engine = " -E BLENDER_WORKBENCH";
         qDebug() << "Swithed to " + Engine + " render engine";
     }
-
     ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
 }
 
-void MainWindow::on_renderButton_clicked()
+void MainWindow::on_btn_Render_clicked()
 {
     QString render;
     QString bl;
@@ -200,8 +190,8 @@ void MainWindow::on_renderButton_clicked()
     const char *c_str_bl = inst.data();
 
     if(blend == ""){
-        QMessageBox::critical(this, "Error", "You can't render nothing, select a blender file to render !! xD ");
         system("notify-send 'Blender Render' 'Error !! You have to add a blend file to render first'");
+        //QMessageBox::critical(this, "Error", "You can't render nothing, select a blender file to render !! xD ");
         qDebug() << "MWAHAHAHA errooooooorrrrr !!!";
     }
     else{
@@ -233,7 +223,6 @@ void MainWindow::on_SaveRender_textChanged(const QString &arg1)
         SaveAs = " -o " + arg1;
 
     ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
-
     qDebug() << "The image save text was changed to : " + SaveAs;
 }
 
@@ -247,10 +236,79 @@ void MainWindow::on_checkBox_2_toggled(bool checked)
     ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
 }
 
-void MainWindow::on_frameStart_2_valueChanged(const QString &arg1)
+void MainWindow::on_NumberThread_valueChanged(const QString &arg1)
 {
     tnum = " -t " + arg1;
     ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
-
     qDebug() << tnum;
+}
+
+void MainWindow::on_btn_GitHub_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://github.com/Nesakko", QUrl::TolerantMode));
+}
+
+void MainWindow::on_btn_Twitter_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://twitter.com/WiseNesakko", QUrl::TolerantMode));
+}
+
+void MainWindow::on_btn_Diaspora_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://pod.dapor.net/people/61cec8f086010137677d48600054b5a3", QUrl::TolerantMode));
+}
+
+void MainWindow::on_btn_Misskey_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://misskey.io/@Nesakko", QUrl::TolerantMode));
+}
+
+void MainWindow::on_BtnSide_Render_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+
+    qDebug() << "page Render";
+}
+
+void MainWindow::on_BtnSide_Queue_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+    qDebug() << "page Queue";
+}
+
+void MainWindow::on_BtnSide_Param_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+    qDebug() << "page Optios";
+}
+
+void MainWindow::on_BtnSide_Option4_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+    qDebug() << "page Other";
+}
+
+
+void MainWindow::on_btn_AddQueue_clicked()
+{
+    QString ToQueue;
+    ToQueue = binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim;
+    ui->listWidget->addItem(ToQueue);
+}
+
+/*
+void MainWindow::on_btn_ListUp_clicked()
+{
+    ui->listWidget->
+}
+
+void MainWindow::on_btn_ListDown_clicked()
+{
+
+}
+*/
+
+void MainWindow::on_btn_ListRemove_clicked()
+{
+    delete ui->listWidget->currentItem();
 }
