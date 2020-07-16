@@ -228,6 +228,9 @@ QPushButton:pressed{
        </item>
        <item row="1" column="0">
         <widget class="QPushButton" name="BtnSide_Queue">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -253,6 +256,9 @@ QPushButton:pressed{
        </item>
        <item row="2" column="0">
         <widget class="QPushButton" name="BtnSide_Param">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="minimumSize">
           <size>
            <width>64</width>
@@ -272,6 +278,9 @@ QPushButton:pressed{
        </item>
        <item row="3" column="0">
         <widget class="QPushButton" name="BtnSide_Option4">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -542,6 +551,9 @@ border: none;
       <layout class="QGridLayout" name="gridLayout_8">
        <item row="0" column="1">
         <widget class="QPushButton" name="btn_AddQueue">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="minimumSize">
           <size>
            <width>128</width>
@@ -1572,7 +1584,7 @@ QToolButton:hover{
      <x>0</x>
      <y>0</y>
      <width>1081</width>
-     <height>30</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">

@@ -26,7 +26,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->stackedWidget->setCurrentIndex(0);
     ui->btn_ListDown->setVisible(false);
     ui->btn_ListUp->setVisible(false);
-    ui->CommandLine->setVisible(false);
+    ui->Label_CurrentFile->setVisible(false);
+    //ui->CommandLine->setVisible(false);
 
 }
 
@@ -114,8 +115,8 @@ void MainWindow::on_BlenderPathSelect_clicked()
 {
     // Pas bon, a refaire :((
 
-    QString Bdir = QFileDialog::getExistingDirectory(this, tr("Select Blender installation folder"), QDir::homePath(), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
-    binst = Bdir;
+    //QString Bdir = QFileDialog::getExistingDirectory(this, tr("Select Blender installation folder"), QDir::homePath(), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+    //binst = Bdir;
 
     //QByteArray ba = binst.toLocal8Bit();
     //const char *c_str_binst = ba.data();
@@ -123,7 +124,7 @@ void MainWindow::on_BlenderPathSelect_clicked()
     //ui->BlenderPath->setText(binst);
     //system(c_str_binst);
 
-    qDebug() << "The folder " + binst + "was selected";
+    //qDebug() << "The folder " + binst + "was selected";
 }
 
 void MainWindow::on_BlendSelect_clicked()
