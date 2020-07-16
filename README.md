@@ -1,5 +1,7 @@
 # BlenderRender
 
+Download the latest verion : https://github.com/Nesakko/BlenderRender/releases
+
 A simple user interface so you don't have to use command lines to launch renders/animation without opening Blender.
 
 The idea is to have something simple enough for any user, whether a beginner or advanced user.
