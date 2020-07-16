@@ -106,7 +106,7 @@ void MainWindow::on_checkBox_toggled(bool checked)
         end = "";
         ui->label_2->setText("Frame to render");
     }
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
+    ui->CommandLine->setText("blender -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
     qDebug() << animCheck;
 }
 
@@ -115,13 +115,13 @@ void MainWindow::on_BlenderPathSelect_clicked()
     // Pas bon, a refaire :((
 
     QString Bdir = QFileDialog::getExistingDirectory(this, tr("Select Blender installation folder"), QDir::homePath(), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
-    binst = Bdir;
+    binst = "cd " + Bdir;
 
-    //QByteArray ba = binst.toLocal8Bit();
-    //const char *c_str_binst = ba.data();
+    QByteArray ba = binst.toLocal8Bit();
+    const char *c_str_binst = ba.data();
 
-    //ui->BlenderPath->setText(binst);
-    //system(c_str_binst);
+    ui->BlenderPath->setText(binst);
+    system(c_str_binst);
 
     qDebug() << "The folder " + binst + "was selected";
 }
@@ -146,7 +146,7 @@ void MainWindow::on_BlenderPath_textChanged(const QString &arg1)
     else
         binst = arg1;
 
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
+    ui->CommandLine->setText("blender -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
 }
 
 void MainWindow::on_BlendFile_textChanged(const QString &arg1)

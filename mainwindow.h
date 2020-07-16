@@ -64,14 +64,15 @@ private:
     QString setFrame;
     QString anim;
     QString format;
-    QString formatIndex;
     QString blend;
     QString binst;
     QString Engine;
-    QString engineIndex;
     QString SaveAs;
     QString tnum;
+
     QString currentBlend;
+    QString engineIndex;
+    QString formatIndex;
 
     bool toveride;
     bool animCheck;
