@@ -1,0 +1,150 @@
+QMainWindow{
+	background-color: rgb(55,55,55);
+}
+QGroupBox{
+	background-color: rgb(50,50,50);
+}
+QMenuBar{
+	background-color: rgb(30,30,30);
+}
+
+QPushButton, QToolButton{
+	background-color: rgb(45, 45, 45);
+	min-height: 32px;
+	max-height: 32px;
+	border: none;
+}
+QPushButton:hover{
+	background-color: rgb(42, 180, 255);
+}
+QPushButton:pressed{
+	background-color: rgb(65, 200, 255);
+}
+
+QToolButton:hover{
+	background-color: rgb(42, 180, 255);
+}
+QToolButton:pressed{
+	background-color: rgb(65, 200, 255);
+}
+
+QLineEdit, QListWidget{
+	background-color: rgb(45, 45, 45);
+	border: 1px solid;
+	border-color: rgb(45, 45, 45);
+	min-height: 30px;
+}
+QLineEdit:hover ,QListWidget:hover{
+	background-color: rgb(45, 45, 45);
+	border-color: rgb(42, 180, 255);
+}
+
+QSpinBox{
+	background-color: rgb(45, 45, 45);
+	border: 1px solid;
+	border-color: rgb(45, 45, 45);
+	min-height: 30px;
+}
+QSpinBox:hover{
+	border-color: rgb(65, 200, 255);
+}
+QSpinBox::up-button {
+	
+}
+
+QComboBox{
+	background-color: rgb(45, 45, 45);
+	border: 1px solid;
+	border-color: rgb(45, 45, 45);
+	min-height: 30px;
+}
+QComboBox:hover{
+	border-color: rgb(65, 200, 255);
+}
+QComboBox QAbstractItemView{
+	border: 1px solid;
+	border-color: rgb(65, 200, 255);
+	border-top: 0px;
+	background-color: rgb(45, 45, 45);
+	selection-backgroud-color : rgb(45,45,45);
+}
+
+QProgressBar{
+	background-color: rgb(45, 45, 45);
+	max-height: 16px;
+	max-width: 300px;
+}
+QProgressBar::chunk{
+	background-color: rgb(65, 200, 255);
+}
+
+#SideBar, #BottomBar{
+background-color: rgb(30, 30, 30);
+border: none;
+}
+#StatusBar{
+	background-color: rgb(30, 30, 30);
+	border: none;
+	max-height: 20px;
+	min-height: 20px;
+}
+
+#btnSide_Render, #btnSide_Queue, #btnSide_Param, #btnSide_Option4{
+	background-color: rgb(30,30,30);
+	min-height: 64px;
+	max-height: 64px;
+	border: none;
+}
+#btnSide_Render:hover{
+	background-color: rgb(42, 180, 255);
+}
+#btnSide_Queue:hover{
+	background-color: rgb(42, 180, 255);
+}
+#btnSide_Param:hover{
+	background-color: rgb(42, 180, 255);
+}
+#btnSide_Option4:hover{
+	background-color: rgb(42, 180, 255);
+}
+
+#btn_GitHub{
+	min-height: 32px;
+	min-width: 32px;
+	max-height: 32px;
+	max-width: 32px;
+	border-radius: 16px;
+}
+#btn_GitHub:hover{
+	background-color: rgb(170, 0, 255);
+}
+#btn_Misskey{
+	min-height: 32px;
+	min-width: 32px;
+	max-height: 32px;
+	max-width: 32px;
+	border-radius: 16px;
+}
+#btn_Misskey:hover{
+	background-color: rgb(164, 229, 78);
+}
+#btn_Twitter{
+	min-height: 32px;
+	min-width: 32px;
+	max-height: 32px;
+	max-width: 32px;
+	border-radius: 16px;
+}
+#btn_Twitter:hover{
+	background-color: rgb(42, 180, 255)
+}
+#btn_Diaspora{
+	min-height: 32px;
+	min-width: 32px;
+	max-height: 32px;
+	max-width: 32px;
+	border-radius: 16px;
+}
+#btn_Diaspora:hover{
+	background-color: rgb(19, 74, 255);
+}
