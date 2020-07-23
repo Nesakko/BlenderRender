@@ -23,8 +23,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     //set ui widget default
     ui->stackedWidget->setCurrentIndex(0);
-    //ui->btn_ListDown->setVisible(false);
-    //ui->btn_ListUp->setVisible(false);
+    ui->btn_ListDown->setVisible(false);
+    ui->btn_ListUp->setVisible(false);
     //ui->Label_CurrentFile->setVisible(false);
     //ui->CommandLine->setVisible(false);
 
@@ -234,26 +234,26 @@ void MainWindow::on_btn_Misskey_clicked()
     QDesktopServices::openUrl(QUrl("https://misskey.io/@Nesakko", QUrl::TolerantMode));
 }
 
-void MainWindow::on_BtnSide_Render_clicked()
+void MainWindow::on_btnSide_Render_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 
     qDebug() << "page Render";
 }
 
-void MainWindow::on_BtnSide_Queue_clicked()
+void MainWindow::on_btnSide_Queue_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
     qDebug() << "page Queue";
 }
 
-void MainWindow::on_BtnSide_Param_clicked()
+void MainWindow::on_btnSide_Param_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2);
-    qDebug() << "page Optios";
+    qDebug() << "page Options";
 }
 
-void MainWindow::on_BtnSide_Option4_clicked()
+void MainWindow::on_btnSide_Option4_clicked()
 {
     ui->stackedWidget->setCurrentIndex(3);
     qDebug() << "page Other";

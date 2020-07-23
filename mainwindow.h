@@ -38,10 +38,10 @@ private slots:
     void on_btn_Twitter_clicked();
     void on_btn_Diaspora_clicked();
     void on_btn_Misskey_clicked();
-    void on_BtnSide_Render_clicked();
-    void on_BtnSide_Queue_clicked();
-    void on_BtnSide_Param_clicked();
-    void on_BtnSide_Option4_clicked();
+    void on_btnSide_Render_clicked();
+    void on_btnSide_Queue_clicked();
+    void on_btnSide_Param_clicked();
+    void on_btnSide_Option4_clicked();
     void on_btn_AddQueue_clicked();
     /*
     void on_btn_ListUp_clicked();

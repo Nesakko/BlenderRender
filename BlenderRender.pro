@@ -41,12 +41,17 @@ RESOURCES += \
     Translations/Translations.qrc
 
 DISTFILES += \
-    Res/CSS/Style.css \
     Res/Icons/Bitmaps/Diaspora.png \
+    Res/Icons/Bitmaps/DownArrow.png \
     Res/Icons/Bitmaps/GitHub-Mark-Light-64px.png \
+    Res/Icons/Bitmaps/Misskey_Light.png \
+    Res/Icons/Bitmaps/Moins.png \
     Res/Icons/Bitmaps/TwitterLight.png \
+    Res/Icons/Bitmaps/UpArrow.png \
     Res/Icons/Bitmaps/blenderLight.png \
     Res/Icons/Vertors/Diaspora-asterisk.svg \
     Res/Icons/Vertors/MenuLight.svg \
     Res/Icons/Vertors/TwitterLight.svg \
-    Res/Icons/Vertors/blenderLight.svg
+    Res/Icons/Vertors/blenderLight.svg \
+    Res/Stylesheet_Default.qss \
+    Res/Themes/Stylesheet_Default.qss
