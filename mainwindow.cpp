@@ -15,18 +15,17 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     //Default arguments
-    binst = "blender";
     stdef = " -f ";
     st = "1";
 
     // Default command line on start
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
+    ui->CommandLine->setText("blender -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
 
     //set ui widget default
     ui->stackedWidget->setCurrentIndex(0);
-    ui->btn_ListDown->setVisible(false);
-    ui->btn_ListUp->setVisible(false);
-    ui->Label_CurrentFile->setVisible(false);
+    //ui->btn_ListDown->setVisible(false);
+    //ui->btn_ListUp->setVisible(false);
+    //ui->Label_CurrentFile->setVisible(false);
     //ui->CommandLine->setVisible(false);
 
 }
@@ -52,14 +51,14 @@ void MainWindow::on_actionAbout_triggered()
 void MainWindow::on_frameStart_valueChanged(const QString &arg1)
 {
     st = arg1;
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
+    ui->CommandLine->setText("blender -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
     qDebug() << st;
 }
 
 void MainWindow::on_frameEnd_valueChanged(const QString &arg1)
 {
     end = arg1;
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
+    ui->CommandLine->setText("blender -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
     qDebug() << end;
 }
 
@@ -86,7 +85,7 @@ void MainWindow::on_FormatSelect_activated(int index)
     else if (index == 9)
         format = " -F HDR";
 
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
+    ui->CommandLine->setText("blender -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
     qDebug() << format;
 }
 
@@ -107,24 +106,8 @@ void MainWindow::on_checkBox_toggled(bool checked)
         end = "";
         ui->label_2->setText("Frame to render");
     }
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
+    ui->CommandLine->setText("blender -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
     qDebug() << animCheck;
-}
-
-void MainWindow::on_BlenderPathSelect_clicked()
-{
-    // Pas bon, a refaire :((
-
-    //QString Bdir = QFileDialog::getExistingDirectory(this, tr("Select Blender installation folder"), QDir::homePath(), QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
-    //binst = Bdir;
-
-    //QByteArray ba = binst.toLocal8Bit();
-    //const char *c_str_binst = ba.data();
-
-    //ui->BlenderPath->setText(binst);
-    //system(c_str_binst);
-
-    //qDebug() << "The folder " + binst + "was selected";
 }
 
 void MainWindow::on_BlendSelect_clicked()
@@ -137,23 +120,10 @@ void MainWindow::on_BlendSelect_clicked()
     qDebug() << "File " + blend + " selected";
 }
 
-void MainWindow::on_BlenderPath_textChanged(const QString &arg1)
-{
-    QString b;
-    b = arg1;
-
-    if(b == "")
-        binst = "blender";
-    else
-        binst = arg1;
-
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
-}
-
 void MainWindow::on_BlendFile_textChanged(const QString &arg1)
 {
     blend = arg1;
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
+    ui->CommandLine->setText("blender -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
 }
 
 void MainWindow::on_RenderEngine_currentIndexChanged(int index)
@@ -174,7 +144,7 @@ void MainWindow::on_RenderEngine_currentIndexChanged(int index)
         Engine = " -E BLENDER_WORKBENCH";
         qDebug() << "Swithed to " + Engine + " render engine";
     }
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
+    ui->CommandLine->setText("blender -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
 }
 
 void MainWindow::on_btn_Render_clicked()
@@ -182,7 +152,7 @@ void MainWindow::on_btn_Render_clicked()
     QString render;
     QString bl;
 
-    render = binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim;
+    render = "blender -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim;
     bl = "notify-send 'Blender Render' '" + blend + "'";
 
     QByteArray ba = render.toLocal8Bit();
@@ -223,7 +193,7 @@ void MainWindow::on_SaveRender_textChanged(const QString &arg1)
     else
         SaveAs = " -o " + arg1;
 
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
+    ui->CommandLine->setText("blender -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
     qDebug() << "The image save text was changed to : " + SaveAs;
 }
 
@@ -234,13 +204,13 @@ void MainWindow::on_checkBox_2_toggled(bool checked)
     if(toveride == false)
         tnum = "";
 
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
+    ui->CommandLine->setText("blender -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
 }
 
 void MainWindow::on_NumberThread_valueChanged(const QString &arg1)
 {
     tnum = " -t " + arg1;
-    ui->CommandLine->setText(binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
+    ui->CommandLine->setText("blender -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim);
     qDebug() << tnum;
 }
 
@@ -293,7 +263,7 @@ void MainWindow::on_BtnSide_Option4_clicked()
 void MainWindow::on_btn_AddQueue_clicked()
 {
     QString ToQueue;
-    ToQueue = binst + " -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim;
+    ToQueue = "blender -b " + blend + SaveAs + Engine + format + stdef + st + enddef + end + tnum  + anim;
     ui->listWidget->addItem(ToQueue);
 }
 

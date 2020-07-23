@@ -26,9 +26,7 @@ private slots:
     void on_frameEnd_valueChanged(const QString &arg1);
     void on_FormatSelect_activated(int index);
     void on_checkBox_toggled(bool checked);
-    void on_BlenderPathSelect_clicked();
     void on_BlendSelect_clicked();
-    void on_BlenderPath_textChanged(const QString &arg1);
     void on_BlendFile_textChanged(const QString &arg1);
     void on_RenderEngine_currentIndexChanged(int index);
     void on_btn_Render_clicked();
@@ -65,7 +63,6 @@ private:
     QString anim;
     QString format;
     QString blend;
-    QString binst;
     QString Engine;
     QString SaveAs;
     QString tnum;

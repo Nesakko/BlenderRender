@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1081</width>
-    <height>675</height>
+    <width>1162</width>
+    <height>771</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -229,7 +229,7 @@ QPushButton:pressed{
        <item row="1" column="0">
         <widget class="QPushButton" name="BtnSide_Queue">
          <property name="enabled">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -257,7 +257,7 @@ QPushButton:pressed{
        <item row="2" column="0">
         <widget class="QPushButton" name="BtnSide_Param">
          <property name="enabled">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
          <property name="minimumSize">
           <size>
@@ -279,7 +279,7 @@ QPushButton:pressed{
        <item row="3" column="0">
         <widget class="QPushButton" name="BtnSide_Option4">
          <property name="enabled">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -552,7 +552,7 @@ border: none;
        <item row="0" column="1">
         <widget class="QPushButton" name="btn_AddQueue">
          <property name="enabled">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
          <property name="minimumSize">
           <size>
@@ -727,191 +727,62 @@ border: none;
     </item>
     <item row="0" column="1">
      <widget class="QStackedWidget" name="stackedWidget">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
       <property name="currentIndex">
        <number>0</number>
       </property>
       <widget class="QWidget" name="Page_Render">
-       <layout class="QGridLayout" name="gridLayout_6">
-        <property name="leftMargin">
-         <number>6</number>
-        </property>
-        <property name="topMargin">
-         <number>6</number>
-        </property>
-        <property name="rightMargin">
-         <number>6</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-        <property name="spacing">
-         <number>6</number>
-        </property>
-        <item row="0" column="0" colspan="4">
-         <layout class="QHBoxLayout" name="horizontalLayout">
-          <item>
-           <layout class="QGridLayout" name="gridLayout_2">
-            <property name="horizontalSpacing">
-             <number>0</number>
-            </property>
-            <property name="verticalSpacing">
-             <number>6</number>
-            </property>
-            <item row="1" column="0">
-             <widget class="QLineEdit" name="BlendFile">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>32</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>32</height>
-               </size>
-              </property>
-              <property name="tabletTracking">
-               <bool>true</bool>
-              </property>
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
-              <property name="placeholderText">
-               <string>myScene.blend</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QToolButton" name="BlendSelect">
-              <property name="minimumSize">
-               <size>
-                <width>32</width>
-                <height>32</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QToolButton{
-	border-left: 0px;
-}
-QToolButton:hover{
-	border-left: 0px;
-}</string>
-              </property>
-              <property name="text">
-               <string>...</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label">
-              <property name="text">
-               <string>Blender file to render</string>
-              </property>
-              <property name="buddy">
-               <cstring>BlendFile</cstring>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QGridLayout" name="gridLayout">
-            <property name="horizontalSpacing">
-             <number>0</number>
-            </property>
-            <item row="1" column="0">
-             <widget class="QLineEdit" name="BlenderPath">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>32</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>32</height>
-               </size>
-              </property>
-              <property name="toolTip">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If you want to use your default Blender installation and if Blender is already added to your PATH enviromnent variable, leave this option empty&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-              </property>
-              <property name="whatsThis">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If you want to use your default Blender installation and if Blender is already added to your PATH enviromnent variable, leave this option empty.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="placeholderText">
-               <string>Empty if using the default Blender installation</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QToolButton" name="BlenderPathSelect">
-              <property name="minimumSize">
-               <size>
-                <width>32</width>
-                <height>32</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>...</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_5">
-              <property name="text">
-               <string>Path to Blender</string>
-              </property>
-              <property name="buddy">
-               <cstring>BlenderPath</cstring>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </item>
-        <item row="1" column="0" colspan="3">
-         <layout class="QGridLayout" name="gridLayout_3">
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0" colspan="3">
+         <layout class="QGridLayout" name="gridLayout_2">
           <property name="horizontalSpacing">
            <number>0</number>
           </property>
+          <property name="verticalSpacing">
+           <number>6</number>
+          </property>
           <item row="1" column="0">
-           <widget class="QLineEdit" name="SaveRender">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
+           <widget class="QLineEdit" name="BlendFile">
             <property name="minimumSize">
              <size>
               <width>0</width>
               <height>32</height>
              </size>
             </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>32</height>
-             </size>
+            <property name="styleSheet">
+             <string notr="true"/>
             </property>
             <property name="placeholderText">
-             <string>/home/User/Documents/myScene0001.exr</string>
+             <string>myScene.blend</string>
             </property>
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QToolButton" name="SaveRenderSelect">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
+           <widget class="QToolButton" name="BlendSelect">
             <property name="minimumSize">
              <size>
               <width>32</width>
               <height>32</height>
              </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QToolButton{
+	border-left: 0px;
+}
+QToolButton:hover{
+	border-left: 0px;
+}</string>
             </property>
             <property name="text">
              <string>...</string>
@@ -919,108 +790,13 @@ QToolButton:hover{
            </widget>
           </item>
           <item row="0" column="0">
-           <widget class="QLabel" name="label_6">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
+           <widget class="QLabel" name="label">
             <property name="text">
-             <string>Save as</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="1" column="3">
-         <layout class="QGridLayout" name="gridLayout_4">
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_3">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>128</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>Export format</string>
+             <string>Blender file to render</string>
             </property>
             <property name="buddy">
-             <cstring>FormatSelect</cstring>
+             <cstring>BlendFile</cstring>
             </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QComboBox" name="FormatSelect">
-            <property name="minimumSize">
-             <size>
-              <width>128</width>
-              <height>32</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>128</width>
-              <height>32</height>
-             </size>
-            </property>
-            <property name="mouseTracking">
-             <bool>true</bool>
-            </property>
-            <item>
-             <property name="text">
-              <string>From blend</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>PNG</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>JPEG</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>OpenEXR</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>OpenEXR Multilayer</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>BMP</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Targa</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Targa Raw</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>TIFF</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Radiance HDR</string>
-             </property>
-            </item>
            </widget>
           </item>
          </layout>
@@ -1128,6 +904,172 @@ QToolButton:hover{
           </item>
          </layout>
         </item>
+        <item row="1" column="0" colspan="3">
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_3">
+            <property name="horizontalSpacing">
+             <number>0</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_6">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string>Save as</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLineEdit" name="SaveRender">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>32</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>32</height>
+               </size>
+              </property>
+              <property name="mouseTracking">
+               <bool>false</bool>
+              </property>
+              <property name="placeholderText">
+               <string>/home/User/Documents/myScene0001.exr</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QToolButton" name="SaveRenderSelect">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>32</width>
+                <height>32</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>32</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>...</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_4">
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_3">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>128</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Export format</string>
+              </property>
+              <property name="buddy">
+               <cstring>FormatSelect</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QComboBox" name="FormatSelect">
+              <property name="minimumSize">
+               <size>
+                <width>128</width>
+                <height>32</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>128</width>
+                <height>32</height>
+               </size>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <item>
+               <property name="text">
+                <string>From blend</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>PNG</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>JPEG</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>OpenEXR</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>OpenEXR Multilayer</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>BMP</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Targa</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Targa Raw</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>TIFF</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Radiance HDR</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
         <item row="2" column="1">
          <spacer name="horizontalSpacer_2">
           <property name="orientation">
@@ -1141,7 +1083,7 @@ QToolButton:hover{
           </property>
          </spacer>
         </item>
-        <item row="2" column="2" colspan="2">
+        <item row="2" column="2">
          <layout class="QGridLayout" name="gridLayout_7">
           <item row="1" column="1">
            <widget class="QSpinBox" name="frameStart">
@@ -1583,8 +1525,8 @@ QToolButton:hover{
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1081</width>
-     <height>23</height>
+     <width>1162</width>
+     <height>30</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">
@@ -1617,7 +1559,6 @@ QToolButton:hover{
   </action>
  </widget>
  <tabstops>
-  <tabstop>BlenderPath</tabstop>
   <tabstop>BlendSelect</tabstop>
   <tabstop>BlendFile</tabstop>
   <tabstop>FormatSelect</tabstop>
