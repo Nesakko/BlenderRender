@@ -1,5 +1,13 @@
 # BlenderRender
 
+---
+
+⚠️ Not maintained
+
+It works fine as it is, but I don't have the time nor the inclination to continue the project at the moment.  
+
+---
+
 Download the latest verion : https://github.com/Nesakko/BlenderRender/releases
 
 A simple user interface so you don't have to use command lines to launch renders/animation without opening Blender.
